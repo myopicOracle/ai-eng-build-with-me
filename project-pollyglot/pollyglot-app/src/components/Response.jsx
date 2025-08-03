@@ -1,7 +1,8 @@
 const Response = () => {
     return (
-        <>
-        </>
+        <div className="panel">
+
+        </div>
     )
 }
 

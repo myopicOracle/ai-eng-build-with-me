@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <h1>My React App</h1>
+        <h1>Project PollyGlot</h1>
     )
 }
 
