@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import 'dotenv/config' 
+import 'dotenv/config' 
 import {OpenAI} from 'openai'
 // import Response from './Response'
 // import Input from './Input'
@@ -11,7 +11,7 @@ const Content = () => {
     
     const client = new OpenAI({
         // apiKey: process.env.OPENAI_API_KEY,
-        apiKey: 'NotThatStupid',
+        apiKey: 'NotThatStupid', // hardcode only to test in local dev env 
         dangerouslyAllowBrowser: true,
     })
 
