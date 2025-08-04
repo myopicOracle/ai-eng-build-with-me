@@ -56,10 +56,10 @@ I used AI to generate the README.md file, and to ask for clarification on depend
 
 ## Installation
 
-1. **Clone the repository**
+1. **Fork + Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/pollyglot.git
-   cd pollyglot
+   git clone git@github.com:[YOUR-USERNAME]/ai-eng-build-with-me.git
+   cd ai-eng-build-with-me/project-pollyglot/pollyglot-app
    ```
 
 2. **Install dependencies**

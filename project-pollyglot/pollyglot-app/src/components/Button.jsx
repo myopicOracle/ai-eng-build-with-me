@@ -1,7 +1,7 @@
 const Button = ({ handleClick }) => {
     return (
         <div>
-            <button onClick={handleClick}>Translate</button>
+            <button onClick={handleClick}>Ask Me!</button>
         </div>
     )
 }
