@@ -1,0 +1,33 @@
+.
+├── README.md
+├── eslint.config.js
+├── figma-template.md
+├── index.html
+├── package.json
+├── public
+├── server
+│   ├── index.js
+│   └── package.json
+├── src
+│   ├── App.css
+│   ├── App.jsx
+│   ├── assets
+│   │   ├── fr-flag.png
+│   │   ├── jpn-flag.png
+│   │   ├── parrot.png
+│   │   ├── sp-flag.png
+│   │   └── worldmap.png
+│   ├── components
+│   │   ├── Button.jsx
+│   │   ├── Content.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Header.jsx
+│   │   ├── Input.jsx
+│   │   ├── Language.jsx
+│   │   └── Response.jsx
+│   ├── index.css
+│   └── main.jsx
+├── tree.txt
+└── vite.config.js
+
+6 directories, 25 files

@@ -2,29 +2,28 @@
 
 **Purpose:** I built this project to cement what I had learned about using the OpenAI library, making API calls to the 'chat' and 'response' endpoints, the difference between 'zero-shot' and 'few-shot' prompting, the impact of 'temperature' and 'stop-sequences', as well as 'frequency penalties' and 'presence penalties', through Scrimba's ["Intro to AI Engineering"](https://scrimba.com/the-ai-engineer-path-c02v) course in the ["AI Engineer Path"](https://scrimba.com/intro-to-ai-engineering-c032).
 
-## Note on the OpenAI API & Free Alternatives
+*App Files:* [pollyglot-app/](pollyglot-app/)
 
-### **Re: OpenAI API** 
-OpenAI no longer offers $5 in credit to new users, but I highly recommend making the investment over free options like Gemini API. In addition to the excellent documentation:
+## Note on the OpenAI API & Free Alts
+
+**Re: OpenAI API** | OpenAI no longer offers $5 in credit to new users, but I highly recommend making the investment over free options like Gemini API. In addition to the excellent documentation:
 
 - The [*Fine-Tuning*](https://platform.openai.com/finetune) tool allows you to, using either the GUI or API, create fine-tuning jobs from JSONL datasets and use your saved models. It offers less control and deployment options compared to alternatives than SageMaker AI, but is still quite powerful if you're just getting started. 
 - The [*OpenAI Playground*](https://platform.openai.com/chat) allows you to do 'back-of-the-napkin' model evals and experiment with different models (including your own fine-tuned models!) by saving your parameters in unique code snippets
 - For more methodical evals, you can use the [*Model Evaluation*](https://platform.openai.com/evaluations) tool and by referencing the [*eval documentation here*](https://platform.openai.com/docs/guides/evals?api-mode=responses) as well as the [*model optimization docs here*](https://platform.openai.com/docs/guides/model-optimization)
 
-### **Re: Alternatives** 
-If you're dead-set on a no-cost alternative, you can use the [*Gemini API OpenAI compatibility*](https://ai.google.dev/gemini-api/docs/openai) option. I've compiled some quickstart guides and working API calls in these files (located in [../docs](../docs/) and [../gemini-alt](../gemini-alt/)):
+**Re: Alternatives** | If you're dead-set on a no-cost alternative, you can use the [*Gemini API OpenAI compatibility*](https://ai.google.dev/gemini-api/docs/openai) option. I've compiled some quickstart guides and working API calls in these files (located in [docs/](docs/) and [gemini-alt/](gemini-alt/)):
  
+
 *Quickstart Guides*
-- [Adapting OpenAI Library to use Gemini API Quickstart](../docs/Adapting_OpenAI_Library_to_use_Gemini_API_Quickstart.md)
-- [Gemini API Quickstart](../docs/Gemini_API_quickstart.md)
-- [OpenAI API Quickstart](../docs/Open_API_quickstart.md)
+- [Adapting OpenAI Library to use Gemini API Quickstart](docs/Adapting_OpenAI_Library_to_use_Gemini_API_Quickstart.md)
+- [Gemini API Quickstart](docs/Gemini_API_quickstart.md)
+- [OpenAI API Quickstart](docs/Open_API_quickstart.md)
 
 *Sample API Calls*
-- [Gemini + Adapted OpenAI Implementation](../gemini-alt/gemini+adapted+openai_index.js)
-- [Pure Gemini API Implementation](../gemini-alt/gemini_version_index.js)
+- [Gemini + Adapted OpenAI Implementation](gemini-alt/gemini+adapted+openai_index.js)
+- [Pure Gemini API Implementation](gemini-alt/gemini_version_index.js)
 
-
-## Project Notes
 
 **AI Usage:** For this project, I really made an effort to use AI as little as possible. I also turned off tab-complete and React snippets. It came at the cost of less intricate design, but paid back in full in the form of my own sanity and helping me remember that I'm still capable of writing a full stack React/Node app without it.
 
