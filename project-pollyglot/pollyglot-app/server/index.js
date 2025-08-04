@@ -4,7 +4,7 @@ import { OpenAI } from 'openai';
 import cors from 'cors';
 
 const app = express();
-const port = 3001;
+const PORT = 3001;
 
 app.use(cors());
 app.use(express.json());
@@ -19,20 +19,32 @@ app.get('/', (req, res) => {
 
 app.post('/api/chat', async (req, res) => {
   try {
-    const { messages } = req.body;
+    const { text } = req.body;
     
     const response = await openai.chat.completions.create({
       model: 'gpt-4.1-nano',
-      messages,
+      messages: [
+        {
+          role: 'system',
+          content: 'You are patient and encouraging language teacher who helps students learn French.',
+        },
+        {
+          role: 'user',
+          content: text,
+        }
+      ],
+      temperature: 0.8,
     });
 
-    res.json(response.choices[0].message);
+    res.json({ 
+      translatedText: response.choices[0].message.content 
+    });
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ error: 'Error processing your request' });
+    res.status(500).json({ error: 'Error processing translation' });
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
