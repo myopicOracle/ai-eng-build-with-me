@@ -1,62 +1,47 @@
 import { useState } from 'react'
-import 'dotenv/config' 
-import {OpenAI} from 'openai'
-// import Response from './Response'
-// import Input from './Input'
-// import Button from './Button'
+import Language from './Language'
+import Response from './Response'
+import Input from './Input'
+import Button from './Button'
 
 const Content = () => {
     const [userMessage, setUserMessage] = useState('')
     const [translatedText, setTranslatedText] = useState('')
-    
-    const client = new OpenAI({
-        // apiKey: process.env.OPENAI_API_KEY,
-        apiKey: 'NotThatStupid', // hardcode only to test in local dev env 
-        dangerouslyAllowBrowser: true,
-    })
 
     const handleUserInput = (e) => {
         setUserMessage(() => e.target.value)
     }
 
     const handleClick = async () => {
-        setUserMessage(userMessage)
+        try {
+            const response = await fetch('http://localhost:3001/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: userMessage })
+            })
 
-        const messages = [
-            {
-                role: 'system',
-                // content: 'You are patient and encouraging language teacher who helps students learn new languages.',
-                content: 'You translate the user input into French.',
-            },
-            {
-                role: 'user',
-                content: userMessage,
+            if (!response.ok) {
+                throw new Error('Translation failed')
             }
-        ]
 
-        const response = await client.chat.completions.create({
-            model: 'gpt-4.1-nano',
-            messages: messages,
-            temperature: 0.8,
-        })
-
-        console.log(response)
-        console.log(response.choices[0].message.content)
-        setTranslatedText(response.choices[0].message.content)
+            const data = await response.json()
+            console.log('Response data: ', data)
+            console.log('User input: ', userMessage)
+            setTranslatedText(data.translatedText)
+        } catch (error) {
+            console.error('Error:', error)
+            setTranslatedText('Error: Failed to translate text')
+        }
     }
 
     return (
         <div className='card'>
-
-            <div className="panel" id="translatedText">{translatedText}</div>
-            <input className='panel' type='text' name='userMessage' id='userMessage' placeholder='Enter text to translate.' value={userMessage} onChange={handleUserInput}/>
-            <div className="button">
-                <button onClick={handleClick}>Translate</button>
-            </div>
-
-            {/* <Response content={translatedText}/>
-            <Input />
-            <Button handleClick={() => {console.log(translatedText)}}/> */}
+            <Language />
+            <Response translatedText={translatedText}/>
+            <Input userMessage={userMessage} handleUserInput={handleUserInput} />
+            <Button handleClick={handleClick}/>
         </div>
     )
 }

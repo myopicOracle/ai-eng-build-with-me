@@ -19,18 +19,18 @@ app.get('/', (req, res) => {
 
 app.post('/api/chat', async (req, res) => {
   try {
-    const { messages } = req.body;
+    const { text } = req.body;
     
     const response = await openai.chat.completions.create({
       model: 'gpt-4.1-nano',
       messages: [
         {
           role: 'system',
-          content: 'You translate the user input into French.'
+          content: 'You are patient and encouraging language teacher who helps students learn French.',
         },
         {
           role: 'user',
-          content: messages
+          content: text,
         }
       ],
       temperature: 0.8,
