@@ -14,7 +14,8 @@ const Content = () => {
 
     const handleClick = async () => {
         try {
-            const response = await fetch('http://localhost:3001/api/chat', {
+            // const response = await fetch('http://localhost:3001/api/chat', { // use this endpoint for full server setup with /server/index.js
+            const response = await fetch('https://pollyglot-cloudflare-worker.myopic-oracle.workers.dev', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

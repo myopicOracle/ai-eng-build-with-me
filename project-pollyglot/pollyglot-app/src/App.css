@@ -10,6 +10,7 @@
   margin: 4em;
   border: 1px solid goldenrod;
   border-radius: 15px;
+  width: 40vw;
 }
 
 .panel {
@@ -28,6 +29,13 @@
   background-color: #222020;
   border: 1px solid transparent;
   border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.displayArea input {
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .footer {

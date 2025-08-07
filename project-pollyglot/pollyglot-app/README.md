@@ -46,7 +46,7 @@ I used AI to generate the README.md file, and to ask for clarification on depend
 ## Tech Stack
 
 - **Frontend**: React, Vite
-- **Backend**: Node.js, Express
+- **Backend**: Node.js, Express (or Cloudflare Workers for lightweight alternative)
 - **AI**: OpenAI Models (or Gemini via the Gemini )
 - **Styling**: External CSS
 
@@ -56,15 +56,24 @@ I used AI to generate the README.md file, and to ask for clarification on depend
 - npm or yarn
 - OpenAI API key
 
-## Installation
+## Local Development Setup
 
-1. **Fork + Clone the repository**
+This project supports two development setups:
+
+1.  **Full-Stack Local Server**: Run the React client and a Node.js/Express backend on your machine. This is ideal for developing and testing the backend server logic.
+2.  **Client with Cloudflare Worker**: Run the React client locally and connect to a deployed Cloudflare Worker for API calls. This is a more lightweight setup that mirrors a serverless production environment.
+
+### Option 1: Full-Stack Local Setup
+
+#### Installation
+
+1.  **Fork + Clone the repository**
    ```bash
    git clone git@github.com:[YOUR-USERNAME]/ai-eng-build-with-me.git
    cd ai-eng-build-with-me/project-pollyglot/pollyglot-app
    ```
 
-2. **Install dependencies**
+2.  **Install dependencies**
    ```bash
    # Install root dependencies
    npm install
@@ -75,7 +84,7 @@ I used AI to generate the README.md file, and to ask for clarification on depend
    cd ..
    ```
 
-3. **Environment Setup**
+3.  **Environment Setup**
    - Create a `.env` file in the `server` directory
    - Add your OpenAI API key:
      ```
@@ -83,15 +92,15 @@ I used AI to generate the README.md file, and to ask for clarification on depend
      PORT=3001
      ```
 
-## Running the Application
+#### Running the Application
 
-1. **Start the backend server**
+1.  **Start the backend server**
    ```bash
    cd server
    npm start
    ```
 
-2. **Start the frontend development server** (in a new terminal)
+2.  **Start the frontend development server** (in a new terminal)
    ```bash
    # From the project root
    npm run dev
@@ -99,17 +108,72 @@ I used AI to generate the README.md file, and to ask for clarification on depend
 
 3. Open your browser and navigate to `http://localhost:5173`
 
+> **Note**: For this setup, ensure the `fetch` request in `src/components/Content.jsx` points to your local server: `http://localhost:3001/api/chat`.
+
+### Option 2: Client with Cloudflare Worker
+
+Follow these steps to set up the frontend client with a deployed Cloudflare Worker.
+
+1.  **Set up the Frontend**
+    - Follow steps 1 and 2 from the **Installation** section under **Option 1** to clone the repo and install the root dependencies.
+
+2.  **Set up the Cloudflare Worker**
+    - The `/pollyglot-cloudflare-worker` directory contains the source code for the worker.
+    - You will need a Cloudflare account and the `wrangler` CLI installed and configured.
+    
+    ```bash
+    # Install worker dependencies
+    cd pollyglot-cloudflare-worker
+    npm install
+    
+    # Save your OpenAI API key as a secret
+    npx wrangler secret put OPENAI_API_KEY
+    
+    # Deploy the worker
+    npx wrangler deploy
+    ```
+
+3.  **Configure and Run the Frontend**
+    - In `src/components/Content.jsx`, update the `fetch` URL to your deployed Cloudflare Worker's URL.
+    
+    - Start the frontend development server from the root directory:
+    ```bash
+    npm run dev
+    ```
+
 ## Project Structure
 
 ```
 .
+├── .gitignore
 ├── README.md
 ├── eslint.config.js
 ├── figma-template.md
 ├── index.html
 ├── package.json
+├── pollyglot-cloudflare-worker
+│   ├── .editorconfig
+│   ├── .gitignore
+│   ├── .prettierrc
+│   ├── .vscode
+│   │   └── settings.json
+│   ├── .wrangler
+│   │   ├── state
+│   │   │   └── v3
+│   │   │       ├── cache
+│   │   │       │   └── miniflare-CacheObject
+│   │   │       └── workflows
+│   │   └── tmp
+│   ├── package.json
+│   ├── src
+│   │   └── index.js
+│   ├── test
+│   │   └── index.spec.js
+│   ├── vitest.config.js
+│   └── wrangler.jsonc
 ├── public
 ├── server
+│   ├── .env
 │   ├── index.js
 │   └── package.json
 ├── src
@@ -134,7 +198,8 @@ I used AI to generate the README.md file, and to ask for clarification on depend
 ├── tree.txt
 └── vite.config.js
 
-6 directories, 25 files
+17 directories, 36 files
+
 ```
 
 ## Environment Variables
