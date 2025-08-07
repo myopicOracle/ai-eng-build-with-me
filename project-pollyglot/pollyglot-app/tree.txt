@@ -1,11 +1,33 @@
 .
+├── .gitignore
 ├── README.md
 ├── eslint.config.js
 ├── figma-template.md
 ├── index.html
 ├── package.json
+├── pollyglot-cloudflare-worker
+│   ├── .editorconfig
+│   ├── .gitignore
+│   ├── .prettierrc
+│   ├── .vscode
+│   │   └── settings.json
+│   ├── .wrangler
+│   │   ├── state
+│   │   │   └── v3
+│   │   │       ├── cache
+│   │   │       │   └── miniflare-CacheObject
+│   │   │       └── workflows
+│   │   └── tmp
+│   ├── package.json
+│   ├── src
+│   │   └── index.js
+│   ├── test
+│   │   └── index.spec.js
+│   ├── vitest.config.js
+│   └── wrangler.jsonc
 ├── public
 ├── server
+│   ├── .env
 │   ├── index.js
 │   └── package.json
 ├── src
@@ -30,4 +52,4 @@
 ├── tree.txt
 └── vite.config.js
 
-6 directories, 25 files
+17 directories, 36 files
