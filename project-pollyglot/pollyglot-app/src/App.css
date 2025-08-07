@@ -14,7 +14,7 @@
 }
 
 .panel {
-  padding: 1em;
+  padding: 1em 2em;
   margin: 2em;
   background-color: #1a1a1a;
   border: 1px solid transparent;
@@ -23,8 +23,7 @@
 
 .displayArea {
   padding: 1em;
-  margin: 2em;
-  margin-top: 0em;
+  margin: 0 auto 2em;
   text-align: left;
   background-color: #222020;
   border: 1px solid transparent;
