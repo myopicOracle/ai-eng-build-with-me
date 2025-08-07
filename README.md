@@ -2,6 +2,8 @@
 
 **Purpose:** I built this project to cement what I had learned about using the OpenAI library, making API calls to the 'chat' and 'response' endpoints, the difference between 'zero-shot' and 'few-shot' prompting, the impact of 'temperature' and 'stop-sequences', as well as 'frequency penalties' and 'presence penalties', through Scrimba's ["Intro to AI Engineering"](https://scrimba.com/the-ai-engineer-path-c02v) course in the ["AI Engineer Path"](https://scrimba.com/intro-to-ai-engineering-c032).
 
+#### Live Link: https://project-pollyglot.vercel.app/
+
 ![Pollyglot Language Learning Interface](/project-pollyglot/demo.png)
 
 *App Files:* [project-pollyglot/pollyglot-app/](project-pollyglot/pollyglot-app/)
