@@ -10,7 +10,8 @@
   margin: 4em;
   border: 1px solid goldenrod;
   border-radius: 15px;
-  width: 40vw;
+  max-width: 40vw;
+  width: 33vw;
 }
 
 .panel {
@@ -19,6 +20,11 @@
   background-color: #1a1a1a;
   border: 1px solid transparent;
   border-radius: 5px;
+}
+
+.displayArea,
+.displayArea::placeholder {
+  font-size: 1em;
 }
 
 .displayArea {
@@ -32,9 +38,38 @@
   box-sizing: border-box;
 }
 
-.displayArea input {
-  width: 100%;
-  box-sizing: border-box;
+@media (max-width: 900px) {
+  .displayArea,
+  .displayArea::placeholder {
+    font-size: 1.1em;
+  }
+  
+  html {
+    font-size: 12px;
+  }
+  
+  .card {
+    width: 70vw;
+    max-width: 75vw;
+    margin: 8em 2em;
+  }
+}
+
+@media (max-width: 500px) {
+  .displayArea,
+  .displayArea::placeholder {
+    font-size: 1.2em;
+  }
+  
+  html {
+    font-size: 12px;
+  }
+
+  .card {
+    width: 80vw;
+    max-width: 85vw;
+    margin: 6em 0;
+  }
 }
 
 .footer {
