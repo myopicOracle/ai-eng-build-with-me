@@ -7,12 +7,17 @@ import Button from './Button'
 const Content = () => {
     const [userMessage, setUserMessage] = useState('')
     const [translatedText, setTranslatedText] = useState('')
+    const [language, setLanguage] = useState('Japanese')
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleUserInput = (e) => {
         setUserMessage(() => e.target.value)
     }
 
     const handleClick = async () => {
+        if (!userMessage || isLoading) return
+        setIsLoading(true)
+        setTranslatedText('')
         try {
             // const response = await fetch('http://localhost:3001/api/chat', { // use this endpoint for full server setup with /server/index.js
             const response = await fetch('https://pollyglot-cloudflare-worker.myopic-oracle.workers.dev', {
@@ -20,7 +25,7 @@ const Content = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ text: userMessage })
+                body: JSON.stringify({ text: userMessage, language: language })
             })
 
             if (!response.ok) {
@@ -34,15 +39,17 @@ const Content = () => {
         } catch (error) {
             console.error('Error:', error)
             setTranslatedText('Error: Failed to translate text')
+        } finally {
+            setIsLoading(false)
         }
     }
 
     return (
         <div className='card'>
-            <Language />
+            <Language language={language} setLanguage={setLanguage} />
             <Response translatedText={translatedText}/>
-            <Input userMessage={userMessage} handleUserInput={handleUserInput} />
-            <Button handleClick={handleClick}/>
+            <Input userMessage={userMessage} handleUserInput={handleUserInput} disabled={isLoading} />
+            <Button handleClick={handleClick} disabled={isLoading}/>
         </div>
     )
 }

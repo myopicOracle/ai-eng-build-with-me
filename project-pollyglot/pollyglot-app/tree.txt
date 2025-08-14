@@ -34,10 +34,18 @@
 │   ├── App.css
 │   ├── App.jsx
 │   ├── assets
-│   │   ├── fr-flag.png
-│   │   ├── jpn-flag.png
-│   │   ├── parrot.png
-│   │   ├── sp-flag.png
+│   │   ├── arabic.webp
+│   │   ├── australian.webp
+│   │   ├── chinese.webp
+│   │   ├── dutch.webp
+│   │   ├── french.webp
+│   │   ├── german.webp
+│   │   ├── hebrew.webp
+│   │   ├── italian.webp
+│   │   ├── japanese.webp
+│   │   ├── portuguese.webp
+│   │   ├── spanish.webp
+│   │   ├── urdu.webp
 │   │   └── worldmap.png
 │   ├── components
 │   │   ├── Button.jsx
@@ -52,4 +60,4 @@
 ├── tree.txt
 └── vite.config.js
 
-17 directories, 36 files
+17 directories, 44 files

@@ -6,6 +6,19 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'Content-Type'
 };
 
+const easterEggForAussies = [
+	"Strewth! I just wrestled a wombat for me last Tim Tam!",
+	"Fair dinkum, me ute got bogged in a puddle of Vegemite!",
+	"Oi! Who let the emu drive the lawnmower again?",
+	"Blimey, the mozzies are bigger than me nan’s caravan!",
+	"Crikey! I dropped me meat pie in the billabong!",
+	"You beauty! Found me sunnies inside a kangaroo pouch!",
+	"Stone the flamin’ crows, I left me thongs at the servo!",
+	"Bonza! The koalas finally learned how to play footy!",
+	"No worries, mate—just dodged a snake on me way to the dunny!",
+	"G’day! I taught a platypus how to surf this arvo!"
+];
+
 export default {
 	async fetch(request, env, ctx) {
 
@@ -19,14 +32,21 @@ export default {
 
 		try {
 			
-			const { text } = await request.json()
+			const { text, language = 'Japanese' } = await request.json();
+
+			// Easter Egg :)
+			if (language === 'Australian') {
+			const randomPhrase = easterEggForAussies[Math.floor(Math.random() * easterEggForAussies.length)];
+			return new Response(JSON.stringify({ translatedText: randomPhrase }), { headers: corsHeaders });
+			}
+
 
 			const chatCompletion = await openai.chat.completions.create({
 				model: 'gpt-4.1-nano',
 				messages: [
 				  {
 					role: 'system',
-					content: `You are a patient French language instructor. Answer questions in 3-4 sentences for beginner students. Follow the style and tone shown in these examples:
+					content: `You are a patient ${language} language instructor. Answer questions in 3-4 sentences for beginner students. Follow the style and tone shown in these examples:
 		  
 					Example 1:
 					User: "How do I ask for prices of items from a vendor?"
