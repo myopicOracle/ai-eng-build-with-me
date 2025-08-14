@@ -2,6 +2,10 @@
 
 **Purpose:** I built this project to cement what I had learned about using the OpenAI library, making API calls to the 'chat' and 'response' endpoints, the difference between 'zero-shot' and 'few-shot' prompting, the impact of 'temperature' and 'stop-sequences', as well as 'frequency penalties' and 'presence penalties', through Scrimba's ["Intro to AI Engineering"](https://scrimba.com/the-ai-engineer-path-c02v) course in the ["AI Engineer Path"](https://scrimba.com/intro-to-ai-engineering-c032).
 
+**Function:** Concise, AI-powered language lessons for travellers, students, or professional pollyglots. Users can choose from 12 languages: Arabic, Australian (a lighthearted Easter Egg), Chinese, Dutch, French, German, Hebrew, Italian, Japanese, Portuguese, Spanish, and Urdu.
+
+![Arabic](src/assets/arabic.webp) ![Australian](src/assets/australian.webp) ![Chinese](src/assets/chinese.webp) ![Dutch](src/assets/dutch.webp) ![French](src/assets/french.webp) ![German](src/assets/german.webp) ![Hebrew](src/assets/hebrew.webp) ![Italian](src/assets/italian.webp) ![Japanese](src/assets/japanese.webp) ![Portuguese](src/assets/portuguese.webp) ![Spanish](src/assets/spanish.webp) ![Urdu](src/assets/urdu.webp)
+
 #### Live Link: https://project-pollyglot.vercel.app/
 
 ![Pollyglot Language Learning Interface](../demo.png)
@@ -35,15 +39,6 @@ If you're dead-set on a no-cost alternative, you can use the [*Gemini API OpenAI
 I used AI to generate the README.md file, and to ask for clarification on dependencies, CORS configuration, and to debug the server setup, but I did not use AI to generate any of the actual code for this project. The code is quite simple, and mostly solidifies what I have been learning through *The Odin Project* and *Full Stack Open*.
 
 **Starter Files:** The starter files provided for this project included **empty** *index.html*, *index.js*, and *index.css* files, as well as 5 images for the flags of France, Japan, Spain, a parrot logo, and a world map. While Figma design template was provided, I opted for a more minimalist approach. 
-
-**App Function:** Pollyglot is an AI-powered language learning application that helps users practice and learn new languages through interactive translation. Built with React and powered by OpenAI's GPT models, it provides instant translations and language learning assistance.
-
-## Features
-
-- Real-time text translation
-- Clean, user-friendly interface
-- Responsive design for all devices
-- Built with modern React practices
 
 ## Tech Stack
 
@@ -182,10 +177,18 @@ Follow these steps to set up the frontend client with a deployed Cloudflare Work
 │   ├── App.css
 │   ├── App.jsx
 │   ├── assets
-│   │   ├── fr-flag.png
-│   │   ├── jpn-flag.png
-│   │   ├── parrot.png
-│   │   ├── sp-flag.png
+│   │   ├── arabic.webp
+│   │   ├── australian.webp
+│   │   ├── chinese.webp
+│   │   ├── dutch.webp
+│   │   ├── french.webp
+│   │   ├── german.webp
+│   │   ├── hebrew.webp
+│   │   ├── italian.webp
+│   │   ├── japanese.webp
+│   │   ├── portuguese.webp
+│   │   ├── spanish.webp
+│   │   ├── urdu.webp
 │   │   └── worldmap.png
 │   ├── components
 │   │   ├── Button.jsx
@@ -200,7 +203,7 @@ Follow these steps to set up the frontend client with a deployed Cloudflare Work
 ├── tree.txt
 └── vite.config.js
 
-17 directories, 36 files
+17 directories, 44 files
 
 ```
 
@@ -225,14 +228,6 @@ The following environment variables need to be set in `server/.env`:
 3. Set the root directory to `server`
 4. Add environment variables
 5. Deploy!
-
-## Contributing
-
-1. Fork the repository
-2. Create a new branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## Acknowledgments
 

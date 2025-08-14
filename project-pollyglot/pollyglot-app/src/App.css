@@ -6,72 +6,105 @@
 }
 
 .card {
-  padding: 1em;
+  width: 400px;
+  padding: 2em;
   margin: 4em;
-  border: 1px solid goldenrod;
+  border: 2px solid #daa520;
   border-radius: 15px;
-  max-width: 40vw;
-  width: 33vw;
 }
 
 .panel {
-  padding: 1em 2em;
+  padding: 1em 3em;
   margin: 2em;
+  text-align: left;
   background-color: #1a1a1a;
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
-.displayArea,
-.displayArea::placeholder {
-  font-size: 1em;
-}
-
 .displayArea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 50px;
   padding: 1em;
-  margin: 0 auto 2em;
+  margin: 2em 0;
+  margin-top: 0em;
   text-align: left;
   background-color: #222020;
   border: 1px solid transparent;
   border-radius: 5px;
-  width: 100%;
-  box-sizing: border-box;
+}
+
+.displayArea {
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
 }
 
 @media (max-width: 900px) {
-  .displayArea,
-  .displayArea::placeholder {
-    font-size: 1.1em;
-  }
-  
-  html {
-    font-size: 12px;
-  }
-  
   .card {
-    width: 70vw;
-    max-width: 75vw;
-    margin: 8em 2em;
+    width: 360px;
+    padding: 1.5em;
+    margin: 5em 0;
+  }
+  .displayArea {
+    min-height: 40px;
   }
 }
 
 @media (max-width: 500px) {
-  .displayArea,
-  .displayArea::placeholder {
-    font-size: 1.2em;
-  }
-  
-  html {
-    font-size: 12px;
-  }
-
   .card {
-    width: 80vw;
-    max-width: 85vw;
-    margin: 6em 0;
+    width: 75vw;
+    padding: 1em;
+    margin: 4em 0;
+  }
+  .displayArea {
+    min-height: 30px;
   }
 }
 
 .footer {
   margin-top: 2em;
+}
+
+.language-dropdown-container {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.language-dropdown-trigger {
+  font-size: 12px;
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: inherit;
+  border-radius: 6px;
+  border: 1px solid #e1e1e1;
+  display: inline-block;
+  user-select: none;
+}
+
+.language-dropdown-trigger:hover {
+  background-color: #363030;
+}
+
+.language-dropdown-list {
+  position: absolute;
+  background-color: #363030;
+  padding: 6px 4px;
+  border: 1px solid #e1e1e1;
+  border-radius: 6px;
+  z-index: 1;
+  top: 15%;
+  right: 8%;
+}
+
+
+.language-dropdown-item {
+  padding: 4px 15px;
+  cursor: pointer;
+}
+
+.language-dropdown-item:hover {
+  background-color: #1a1a1a;
+  color: rgba(255, 255, 255, 0.87);
 }

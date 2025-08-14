@@ -1,7 +1,9 @@
-const Button = ({ handleClick }) => {
+const Button = ({ handleClick, disabled }) => {
     return (
         <div>
-            <button onClick={handleClick}>Ask Me!</button>
+            <button onClick={handleClick} disabled={disabled}>
+                {disabled ? 'Asking...' : 'Ask Me!'}
+            </button>
         </div>
     )
 }
